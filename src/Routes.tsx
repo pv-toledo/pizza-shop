@@ -4,12 +4,16 @@ import { AuthLayout } from "./pages/_layouts/auth";
 import { Dashboard } from "./pages/app/Dashboard";
 import { SignIn } from "./pages/auth/sign-in";
 import { SignUp } from "./pages/auth/sign-up";
+import { Orders } from "./pages/app/orders/orders";
 
 export const router = createBrowserRouter([
   {
     path: "/", //path vazio
     element: <AppLayout />, //mostra o layout
-    children: [{ path: "/", element: <Dashboard /> }], //subrota com a rota da página
+    children: [
+      { path: "/", element: <Dashboard /> },
+      { path: "/orders", element: <Orders /> },
+    ], //subrota com a rota da página
   },
 
   {
