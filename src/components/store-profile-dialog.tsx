@@ -77,9 +77,9 @@ export function StoreProfileDialog() {
     mutationFn: updateProfile,
     //Executa com o sucesso da mutação que vem antes (se o nome e descrição forem alterados com sucesso, onSuccess vai rodar). Depois foi atualizado para interface otimista, onde se assume que a alteração vai dar certo pois o risco de erro é mínimo, dessa forma usando onMutate (que roda assim que dispara a requisição))
     onMutate({ name, description }) {
-      const {cached} = updateManagedRestaurantCache({name, description})
+      const result = updateManagedRestaurantCache({name, description})
 
-      return {previousProfile: cached}
+      return {previousProfile: result?.cached}
     }, 
     //O context tem acesso a tudo que é retornado de onMutate, por exemplo
     onError(_, __, context) {
