@@ -12,7 +12,7 @@ if (env.VITE_ENABLE_API_DELAY) {
     //retorna o corpo da requisição com um delay de 2s
     //usado para simular o tempo de requisição para uma api que não está rodando local
   api.interceptors.request.use(async (config) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, Math.round(Math.random()*3000)));
 
     return config
   });
